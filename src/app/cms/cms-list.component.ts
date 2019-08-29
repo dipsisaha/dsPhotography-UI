@@ -27,6 +27,17 @@ export class CmsListComponent implements OnInit {
   constructor(private _cmsService:CmsService,private router: Router) { }
 
   ngOnInit() {
+
+    this._cmsService.getCmsList()
+                    .subscribe(data =>{
+                      console.log(data)
+                                this.listdata   = data.msg
+                                },
+                               error =>this.errorMsg  = error );
+  }
+
+  openDetails(type){
+    this.router.navigate(["/"+this.constants.ORG_USER+"/cms/"+type]);
   }
 
   setOrder(value: string,type:string,reverse) {

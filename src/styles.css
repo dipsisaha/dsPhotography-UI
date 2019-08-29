@@ -1,5 +1,6 @@
 body{
 	font-family:'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+	background:none !important;
 }
 
 .bold{
@@ -115,7 +116,7 @@ body{
 .buttonbox{
     margin-top: 30px;
     opacity: 0.8;
-    background: #7D0552;
+    background: #000000;
     width: 118px;
     height: 40px;
     font-size: 14px;
@@ -128,4 +129,19 @@ body{
 }
 .ck-editor__editable {
 	min-height: 500px;
+}
+.leftsidepanel{
+	width:15%;
+	float:left;
+}
+.mainPanel{
+	width:85%;
+	float:left;
+}
+.formcontainer  {
+    height: 100% !important;
+    /* margin-top: 20px; */
+    /* margin-bottom: 30px; */
+    background-color: white;
+    /* margin-right: 40px; */
 }

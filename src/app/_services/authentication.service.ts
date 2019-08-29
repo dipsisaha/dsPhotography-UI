@@ -38,7 +38,6 @@ export class AuthenticationService {
 
        url = "/"+this.constants.API_PREFIX+"/"+this.constants.API_LOGIN;
        jsonReq = {
-           "type" : user.logintype,
            "userName" : user.username,
            "password" : user.password
        }
@@ -48,7 +47,7 @@ export class AuthenticationService {
 		    		  return res;
 	        }, error => {
 	        	this.handleError;
-	            console.log(error);
+                console.log(error);
 	            return error;
 	        }).finally(() => {
 	        	if(!isSilentLogin){

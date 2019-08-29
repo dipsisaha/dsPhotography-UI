@@ -1,37 +1,39 @@
-import { Injectable ,Output , EventEmitter,Inject} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse,HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
-import { ApplicationConstants } from '../app.constants';
-import { DesignationList } from '../_model/designation';
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/map';
 import { _throw } from 'rxjs/observable/throw';
 
+import { ApplicationConstants } from '../app.constants';
+
 @Injectable({
   providedIn: 'root'
 })
-export class DesignationService {
-  @Output() public spinner:EventEmitter<boolean>=null;
+export class DashboardService {
 
   constants = ApplicationConstants;
-  
   constructor(private http: HttpClient) { }
-  
-  getDesignationList() :Observable<DesignationList[]> {
 
-    let _url = this.constants.GET_DESIGNATION_LIST;
-    return this.http.get<DesignationList[]>(_url)
+  getAdminDetails(reqJson) :Observable<any> {
+
+    let _url = "/"+this.constants.API_PREFIX+"/"+this.constants.GET_ADMIN_DETAILS;
+
+    let headers = new HttpHeaders();
+    headers = headers.set("Content-Type", "application/json");  
+
+    return this.http.post<any>(_url,reqJson,{headers:headers})
     .pipe(
-     retry(3), 
-     catchError(this.handleError) 
-   );
+      retry(2), 
+      catchError(this.handleError) 
+     ).finally(() => {
+       //this.spinner.emit(false);	
+       });
    }
 
-
-   addDesignation(reqJson): Observable<any> {
-    this.spinner.emit(true);
-    let _url = "/"+this.constants.ADD_DESIGNATION;
+  updateAdminDetails(reqJson): Observable<any> {
+    let _url = "/"+this.constants.API_PREFIX+"/"+this.constants.UPDATE_ADMIN_DETAILS;
 
     let headers = new HttpHeaders();
     headers = headers.set("Content-Type", "application/json");       

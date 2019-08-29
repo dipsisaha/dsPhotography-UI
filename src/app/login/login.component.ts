@@ -41,30 +41,31 @@ export class LoginComponent implements OnInit {
   login(){  
 			let loginReqJson = {"username":this.model.username,"password":this.model.password,"org":this.orgName};
 			let userJson = {username:this.model.username,orgName:this.orgName,'role':this.constants.ROLE_ASSOCIATE,'password':this.model.password};
-			this.commonService.initializeLoggedInUser(userJson,"",false); 
+			//this.commonService.initializeLoggedInUser(userJson,"",false); 
 	
-      // this.authService.authenticateUser(loginReqJson,false).subscribe(res=>{
-	    //   let userJson = {username:this.model.username,orgName:this.orgName,'role':this.constants.ROLE_ASSOCIATE,'password':this.model.password,'logintype':this.model.logintype};
-	    //   if(res && res.status == 200){
-			// 		console.log("EMpId"+res.value._id)
-			// 		sessionStorage.setItem("empId",res.value._id);
-	    //   	  this.commonService.initializeLoggedInUser(userJson,"",false); 
-	    //   	  //Token refresh
-	    //   // 	  setTimeout(()=>{
-			// 	// 	 this.refreshToken();
-			//   // }, this.constants.TOKEN_REFERSH_TIMESPAN); 
-	    //       //IDLE Timer
-	    //   	  this.startUserIdleActivity();
-	    //   }else{
-	    //   	alert("You are not authorized to access the application");
-	    //   }
-      // },error => {
-      //    console.log(error);
-      //    console.log("Login failed");
-      //    if(error.error && error.error.Payload == 400){
-      //   	alert("You are not authorized to access the application");
-      //    }
-      // });
+      this.authService.authenticateUser(loginReqJson,false).subscribe(res=>{
+				let userJson = {username:this.model.username,orgName:this.orgName,'role':this.constants.ROLE_ASSOCIATE,'password':this.model.password};
+				console.log(res)
+	      if(res && res.status == 200){
+					console.log("EMpId "+res.value._id)
+					sessionStorage.setItem("admin_id",res.value._id);
+	      	  this.commonService.initializeLoggedInUser(userJson,"",false); 
+	      	  //Token refresh
+	      // 	  setTimeout(()=>{
+				// 	 this.refreshToken();
+			  // }, this.constants.TOKEN_REFERSH_TIMESPAN); 
+	          //IDLE Timer
+	      	  this.startUserIdleActivity();
+	      }else{
+	      	alert("You are not authorized to access the application");
+	      }
+      },error => {
+         console.log(error);
+         console.log("Login failed");
+         if(error && error.error.status == "404"){
+        	alert("You are not authorized to access the application");
+         }
+      });
   }
   
   refreshToken(){
@@ -73,7 +74,7 @@ export class LoginComponent implements OnInit {
     	let loginReqJson = {"username":userDetails.username,"password":userDetails.password,"org":userDetails.orgName};
 	    this.authService.authenticateUser(loginReqJson,true).subscribe(res=>{
 		      let userJson = {username:userDetails.username,orgName:userDetails.orgName,'role':ApplicationConstants.ROLE_ASSOCIATE,'password':userDetails.password};
-		      if(res && res.statuscode == 200){
+		      if(res && res.statuscode == "200"){
 		      	  this.commonService.initializeLoggedInUser(userJson,res.token,true); 
 		      	   setTimeout(()=>{
 					 this.refreshToken();

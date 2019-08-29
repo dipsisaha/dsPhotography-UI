@@ -14,7 +14,7 @@ export const AppRoutes:Routes = [
     { path : ApplicationConstants.ORG_USER+'/dashboard',component :DashboardComponent,canActivate:[NavigationGuard]},
     { path : ApplicationConstants.ORG_USER+'/project',component :ProjectComponent,canActivate:[NavigationGuard]},
     { path : ApplicationConstants.ORG_USER+'/addProject',component :AddProjectComponent,canActivate:[NavigationGuard]},
-    { path : ApplicationConstants.ORG_USER+'/cms',component :CmsComponent,canActivate:[NavigationGuard]},
+    { path : ApplicationConstants.ORG_USER+'/cms/:cmsType',component :CmsComponent,canActivate:[NavigationGuard]},
     { path : ApplicationConstants.ORG_USER+'/cmsList',component :CmsListComponent,canActivate:[NavigationGuard]},
 
     { path : '**',component : LoginComponent,data:{org:ApplicationConstants.ORG_USER,title: "DS Login"}},

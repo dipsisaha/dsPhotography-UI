@@ -21,6 +21,8 @@ export class SidePanelComponent implements OnInit {
   constants = ApplicationConstants;
   isSelected;
   role: String ="";
+  public innerWidth: any;
+  public innerHeight: any;
   
   constructor( private serviceInstance: SidePanelService, private router: Router,private data: DataService) {
     this.data.currentPanelId.subscribe(panelId => this.isSelected = panelId);
@@ -61,6 +63,10 @@ export class SidePanelComponent implements OnInit {
   
   ngOnInit() {    
     this.role = sessionStorage.getItem("loginAs")
+    this.innerWidth = window.innerWidth;
+    this.innerHeight = window.innerHeight;
+    console.log("innerWidth >> "+this.innerWidth)
+    console.log("innerHeight >> "+this.innerHeight)
   }
 
   subscribeToChangeEvent() {

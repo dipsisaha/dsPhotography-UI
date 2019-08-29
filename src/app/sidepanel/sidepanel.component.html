@@ -1,4 +1,4 @@
-<nav *ngIf="showSidePanel" class="navbar">	
+<nav *ngIf="showSidePanel" class="navbar"[ngStyle]="{'width':innerWidth, 'height':innerHeight}">	
 	<div class="text-center sidePanel">
 	    <div class="logo">
 				  <div *ngIf="currentOrg.panelId==constants.ORG_SATCOM">

@@ -10,11 +10,10 @@
   font-size: 15px;
 }
 .formcontainer{
-  height: 94%;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  height: 100%;
+  
   background-color: white;
-  margin-right: 40px;
+   
 }
 .inputBox{
   border: 0;

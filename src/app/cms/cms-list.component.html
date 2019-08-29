@@ -10,48 +10,37 @@
         <table class="table table-hover border-0 font12">
             <thead>
               <tr class="heading text-left">
-                <th class="pointer" (click)="setOrder('empID','string',reverse['empID'])" style="width:12%">
+                <th class="pointer" (click)="setOrder('_id','string',reverse['_id'])" style="width:12%">
                   CMS Id
                   <span>
-                      <img src="../assets/img/sort_black_up.png" *ngIf="reverse['empID']==undefined || order != 'empID'|| reverse['empID']" 
-                      [ngClass]="{'botharrowup':(reverse['empID']==undefined|| order != 'empID'),
-                              'singlearrowup':(reverse['empID'])}"
+                      <img src="../assets/img/sort_black_up.png" *ngIf="reverse['_id']==undefined || order != '_id'|| reverse['_id']" 
+                      [ngClass]="{'botharrowup':(reverse['_id']==undefined|| order != '_id'),
+                              'singlearrowup':(reverse['_id'])}"
                       >
                   </span>
                   <span>
-                      <img src="../assets/img/sort_black_down.png"  *ngIf="reverse['empID']==undefined || order != 'empID'|| !reverse['empID']"
-                      [ngClass]="{'botharrowdwn':(reverse['empID']==undefined|| order != 'empID'),
-                            'singlearrowdwn':(reverse['empID']!=undefined && !reverse['empID']&& order == 'empID')}"
+                      <img src="../assets/img/sort_black_down.png"  *ngIf="reverse['_id']==undefined || order != '_id'|| !reverse['_id']"
+                      [ngClass]="{'botharrowdwn':(reverse['_id']==undefined|| order != '_id'),
+                            'singlearrowdwn':(reverse['_id']!=undefined && !reverse['_id']&& order == '_id')}"
                       >
                   </span>
                 </th>
-                <th class="pointer" (click)="setOrder('empName','string',reverse['empName'])" style="width:12%">Name
+                <th class="pointer" (click)="setOrder('cms_type','string',reverse['cms_type'])" style="width:12%">Name
                     <span>
-                        <img src="../assets/img/sort_black_up.png" *ngIf="reverse['empName']==undefined || order != 'empName'|| reverse['empName']" 
-                        [ngClass]="{'botharrowup':(reverse['empName']==undefined|| order != 'empName'),
-                                'singlearrowup':(reverse['empName'])}"
+                        <img src="../assets/img/sort_black_up.png" *ngIf="reverse['cms_type']==undefined || order != 'cms_type'|| reverse['cms_type']" 
+                        [ngClass]="{'botharrowup':(reverse['cms_type']==undefined|| order != 'cms_type'),
+                                'singlearrowup':(reverse['cms_type'])}"
                         >
                     </span>
                     <span>
-                        <img src="../assets/img/sort_black_down.png"  *ngIf="reverse['empName']==undefined || order != 'empName'|| !reverse['empName']"
-                        [ngClass]="{'botharrowdwn':(reverse['empName']==undefined|| order != 'empName'),
-                              'singlearrowdwn':(reverse['empName']!=undefined && !reverse['empName']&& order == 'empName')}"
+                        <img src="../assets/img/sort_black_down.png"  *ngIf="reverse['cms_type']==undefined || order != 'cms_type'|| !reverse['cms_type']"
+                        [ngClass]="{'botharrowdwn':(reverse['cms_type']==undefined|| order != 'cms_type'),
+                              'singlearrowdwn':(reverse['cms_type']!=undefined && !reverse['cms_type']&& order == 'cms_type')}"
                         >
                     </span>
                 </th>
-                <th class="pointer" (click)="setOrder('designation','string',reverse['designation'])" style="width:12%">Description
-                    <span>
-                        <img src="../assets/img/sort_black_up.png" *ngIf="reverse['designation']==undefined || order != 'designation'|| reverse['designation']" 
-                        [ngClass]="{'botharrowup':(reverse['designation']==undefined|| order != 'designation'),
-                                'singlearrowup':(reverse['designation'])}"
-                        >
-                    </span>
-                    <span>
-                        <img src="../assets/img/sort_black_down.png"  *ngIf="reverse['designation']==undefined || order != 'designation'|| !reverse['designation']"
-                        [ngClass]="{'botharrowdwn':(reverse['designation']==undefined|| order != 'designation'),
-                              'singlearrowdwn':(reverse['designation']!=undefined && !reverse['designation']&& order == 'designation')}"
-                        >
-                    </span>
+                <th class="pointer"  style="width:12%">Description
+                   
                 </th> 
                        
                 <th  style="width:12%">Action</th>
@@ -64,13 +53,12 @@
             </tbody>
             <tbody *ngIf="listdata || listdata.length > 0 ">
               <tr *ngFor="let row of listdata| sort: order:orderType:reverseOrder | paginate: pagination;let i = index">
-                <td (click)="openDetails(row)" style="width:12%">{{row.empID}}</td>
-                <td style="width:14%">{{row.empName}}</td>
-                <td (click)="openDetails(row)" style="width:12%">{{row.designation}}</td>
-                <td (click)="openDetails(row)" style="width:12%"> 
-                  <img src="../assets/img/edit.png" style="width:14px;">
-                  &nbsp;
-                  <img src="../assets/img/delete.png" style="width:20px;"></td>
+                <td style="width:12%">{{row._id}}</td>
+                <td style="width:14%">{{row.cms_type}}</td>
+                <td style="width:12%" [innerHTML]="row.description"></td>
+                <td  style="width:12%"> 
+                  <img src="../assets/img/edit.png" style="width:14px;" class="pointer" (click)="openDetails(row.cms_type)">
+                 </td>
              </tr>
             </tbody>
           </table> 
