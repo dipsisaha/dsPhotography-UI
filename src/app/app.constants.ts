@@ -23,6 +23,9 @@ export class ApplicationConstants {
     public static GET_CMS_LIST = 'getAllCms';
     public static FETCH_CMS_DETAILS = 'getCmsByType';
     public static UPDATE_CMS_DETAILS = 'updateCms';
+    public static GET_PROJECT_LIST = 'getAllCms';
+    public static FETCH_PROJECT_DETAILS = 'getCmsByType';
+    public static ADD_PROJECT_DETAILS = 'updateCms';
     public static API_LOGIN = 'login';
     
     

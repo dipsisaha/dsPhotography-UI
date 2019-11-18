@@ -31,6 +31,9 @@ export class AddProjectComponent implements OnInit {
     };
   }
 
+  submit(){
+    
+  }
 
   backToProjectList(){
     this.router.navigate(["/"+this.constants.ORG_USER+"/project"]);
