@@ -33,6 +33,11 @@ export class SidePanelComponent implements OnInit {
       console.log(item)
       console.log("Neww Config Done!!");
       this.subscribeToChangeEvent();
+
+      this.innerWidth = window.innerWidth;
+      this.innerHeight = window.innerHeight;
+      console.log("innerWidth >> "+this.innerWidth)
+      console.log("innerHeight >> "+this.innerHeight)
     
         
     });
@@ -63,10 +68,7 @@ export class SidePanelComponent implements OnInit {
   
   ngOnInit() {    
     this.role = sessionStorage.getItem("loginAs")
-    this.innerWidth = window.innerWidth;
-    this.innerHeight = window.innerHeight;
-    console.log("innerWidth >> "+this.innerWidth)
-    console.log("innerHeight >> "+this.innerHeight)
+    
   }
 
   subscribeToChangeEvent() {

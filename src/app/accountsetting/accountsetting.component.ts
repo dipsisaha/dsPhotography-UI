@@ -5,12 +5,12 @@ import { DashboardService } from '../_services/dashboard.service';
 import { ApplicationConstants } from '../app.constants';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  selector: 'app-accountsetting',
+  templateUrl: './accountsetting.component.html',
+  styleUrls: ['./accountsetting.component.css']
 })
-export class DashboardComponent implements OnInit {
-  
+export class AccountsettingComponent implements OnInit {
+
   public admin_id; 
   model = {};
   contsant = ApplicationConstants
@@ -40,11 +40,7 @@ export class DashboardComponent implements OnInit {
     let requestJson = {};
 
     requestJson['password'] = this.model['password'];
-    requestJson['email'] = this.model['email'];
     requestJson['userName'] = this.model['userName'];
-    requestJson['websiteName'] = this.model['websiteName'];
-    requestJson['fb'] = this.model['fb'];
-    requestJson['insta'] = this.model['insta'];
     requestJson['id'] = sessionStorage.getItem('admin_id');
 
     this.dashboardService.updateAdminDetails(requestJson)
@@ -52,13 +48,12 @@ export class DashboardComponent implements OnInit {
                console.log(res)
                if(res.success) {
                  //alert(res.msg)
-                 alert("Admin details updated sucessfully")
-                 this.router.navigate(["/"+this.contsant.ORG_USER+"/dashboard"]);
+                 alert("Account details updated sucessfully")
+                 this.router.navigate(["/"+this.contsant.ORG_USER+"/accountSetting"]);
                }
                },
                error =>this.errorMsg  = error ); 
 
   }
-  
- 
+
 }

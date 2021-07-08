@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-6 back gray pointer" (click)="backToProjectList()"><img src="../assets/img/pagination_left-chevron.png"> Back</div>
+  <div class="col-6">
+    <div class="title gray" >
+      <b>Add Team</b>
+    </div>
+  </div>
+</div>
+<div  class="formcontainer">
+  <div class="row">
+      <div class="col-md-12" style="padding-left: 50px;">
+          <div class="empsection">
+              <div class="subheading">Team</div>
+              <form #myForm="ngForm">
+                  <div class="row" style="padding-top: 16px;">
+                      <div class="col-md-6 mt-2">
+                          <label class ="heading">Name :</label>&nbsp;&nbsp;
+                          <input type="text"  class="inputBox" name="title" #title="ngModel" [(ngModel)]="model.title"  style="width: 430px;" required>
+                          <p class="invalid" [class.d-none]="title.valid || title.untouched"> Name cannot be Blank</p>
+                          <input type="text"  class="inputBox" name="id" #id="ngModel" [(ngModel)]="model.id"  style="width: 430px;" hidden>
+                        </div>     
+                   </div> 
+                 <br>
+                  <div class="form-group has-feedback" 
+                        [ngClass]="{ 'has-error': myckeditor.invalid && myckeditor.touched }">
+                    <ckeditor [(ngModel)]="mycontent" 
+                              #myckeditor="ngModel"
+                              name="myckeditor"
+                              [config]="ckeConfig" 
+                              debounce="500" 
+                              (change)="onChange($event)">
+                    </ckeditor>
+                  </div>
+                  <button [disabled]="myForm.invalid" class="btn btn-primary"  (click)="submit();">Save</button>
+                  </form>
+          </div>
+      </div>
+  </div>
+</div>
+

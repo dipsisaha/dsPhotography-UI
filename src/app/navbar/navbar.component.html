@@ -11,12 +11,33 @@
         </div>
            
         </div>
-        <div class="col-6 text-right"> 
-        	<div>
-        		<img *ngIf="constants.ORG_USER == currentOrg.orgId" src="../../assets/img/thd/user_icon.png" class="userprofile mr-2">
-        		<span class="mr-4 username">{{userName}}</span>
-        		<span class="ml-4 logout pointer mr-4"><a (click)="logout(currentOrg.logout)">Log out</a></span>
-        	</div>       	          
+        <div class="col-6 text-right "> 
+            <div class="row ">
+                <div class="col-7 ">
+                    <div class="dropdown">
+                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Dropdown button
+                        </button> -->
+                        <img *ngIf="constants.ORG_USER == currentOrg.orgId" src="../../assets/img/user_icon.png" class="userprofile mr-2 pointer dropdown-toggle" width="50"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <!-- <a class="dropdown-item" href="#">Password</a> -->
+                          <div class="dropdown-item pointer" (click)="navigatePassword()">Change Password</div>
+                         
+                        </div>
+                      </div>
+                   
+                   
+                </div>
+                <div class="col-1 text-left" style="padding: 0px;padding-top: 2%;">
+                    <span class="mr-4 username">{{userName}}</span>
+                </div>
+                <div class="col-3">    
+                    <img src="../../assets/img/logout.png" (click)="logout(currentOrg.logout)" class="pointer"/> 
+        		<!-- <span class="ml-4 logout pointer mr-4"><a >Log out</a></span> -->
+                </div>
+
+            </div>
+               	          
         </div>
     </div>
     <hr>

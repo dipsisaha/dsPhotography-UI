@@ -28,6 +28,7 @@ export class NavbarComponent implements OnInit {
   loanType = "";
   userData:any={};
   orgName;
+  ifMenuShow = false
  
   poNumber;
   
@@ -95,6 +96,10 @@ export class NavbarComponent implements OnInit {
     
   }
 
+  openMenu(){
+    this.ifMenuShow = !this.ifMenuShow;
+  }
+
   clearSearch(){
   	this.poNumber = '';
   }
@@ -109,6 +114,10 @@ export class NavbarComponent implements OnInit {
   */
   logout(link){
   	this.commonService.logout();  
+  }
+
+  navigatePassword() {
+    this.router.navigate(['/'+this.constants.ORG_USER+'/accountSetting'])
   }
 }
 	

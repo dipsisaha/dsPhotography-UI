@@ -17,6 +17,7 @@ export class SidePanelService {
       			 	{"id":ApplicationConstants.DASHBOARD_PANEL_ID,"description":"Dashboard","link":"/"+ApplicationConstants.ORG_USER+"/dashboard/","icon":""},
                         {"id":ApplicationConstants.PROJECT_PANEL_ID,"description":"Manage Project","link":"/"+ApplicationConstants.ORG_USER+"/project/","icon":""},
                         {"id":ApplicationConstants.CMS_PANEL_ID,"description":"Manage CMS","link":"/"+ApplicationConstants.ORG_USER+"/cmsList/","icon":""},
+                        {"id":ApplicationConstants.TEAM_PANEL_ID,"description":"Manage Team","link":"/"+ApplicationConstants.ORG_USER+"/team/","icon":""},
                   ] //provide menu items, each element in mennuList would be a menu item
             },
             // {

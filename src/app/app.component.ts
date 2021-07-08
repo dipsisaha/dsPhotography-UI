@@ -16,8 +16,13 @@ export class AppComponent {
   
   constants = ApplicationConstants;
   isshowSidebar: boolean = false;
+  isloginscreen: boolean = true;
   
   constructor(private router: Router,private data: DataService,private _sidepanel:SidePanelService) { 
+
+    if (sessionStorage.getItem("user_details")) {
+      this.isloginscreen = false
+    }
   }
   
   ngOnInit() {

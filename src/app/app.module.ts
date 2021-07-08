@@ -20,7 +20,6 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import { CKEditorModule } from 'ng2-ckeditor';
 
 
-
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component'
@@ -48,6 +47,12 @@ import { ProjectComponent } from './project/project.component';
 import { AddProjectComponent } from './project/add-project.component';
 import { CmsComponent } from './cms/cms.component';
 import { CmsListComponent } from './cms/cms-list.component';
+import { AddphotoComponent } from './project/addphoto.component';
+import { AccountsettingComponent } from './accountsetting/accountsetting.component';
+import { AccountsettingDirective } from './accountsetting/accountsetting.directive';
+import { TeamComponent } from './team/team.component';
+import { AddteamComponent } from './team/addteam.component';
+//import {MultiUploaderModule}  from '@binssoft/multi-uploader';
 
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
@@ -67,7 +72,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ProjectComponent,
     AddProjectComponent,
     CmsComponent,
-    CmsListComponent
+    CmsListComponent,
+    AddphotoComponent,
+    AccountsettingComponent,
+    AccountsettingDirective,
+    TeamComponent,
+    AddteamComponent
   ],
   imports: [
     NgbModule.forRoot(),
@@ -86,6 +96,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgIdleKeepaliveModule.forRoot(),
     PerfectScrollbarModule,
     CKEditorModule
+    //MultiUploaderModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true},

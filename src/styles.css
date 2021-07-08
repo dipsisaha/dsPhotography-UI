@@ -133,11 +133,20 @@ body{
 .leftsidepanel{
 	width:15%;
 	float:left;
+	background-color: black;
+	height: 100vh;
 }
 .mainPanel{
 	width:85%;
-	float:left;
+	float: right;;
+	height: 100vh;
+	display: block;
+	position: inherit;
+	z-index: 1;
+	overflow-x: hidden;
 }
+
+
 .formcontainer  {
     height: 100% !important;
     /* margin-top: 20px; */

@@ -6,16 +6,24 @@
 							<div class="subheading">Account Settings</div>
 					<div class="row" style="padding-top: 16px;">
 							<div class="col-md-6 mt-2">
-									<label class ="heading">Name :</label>&nbsp;&nbsp;
-									<input type="text"  class="inputBox" name="userName" #userName="ngModel" [(ngModel)]="model.userName" style="width: 430px;" required>
+									<label class ="heading">User Name :</label>&nbsp;&nbsp;
+									<input type="text"  class="inputBox" name="userName" #userName="ngModel" [(ngModel)]="model.userName" style="width: 100%;" required>
 									<p class="invalid" [class.d-none]="userName.valid || userName.untouched"> Name cannot be Blank</p>
 								</div>     
 					 </div>
 					 <br>
 					 <div class="row" >
+						<div class="col-md-6 mt-2">
+								<label class ="heading">Website Name :</label>&nbsp;&nbsp;
+								<input type="text"  class="inputBox" name="text" #websiteName="ngModel" [(ngModel)]="model.websiteName" style="width: 100%;" required>
+								<p class="invalid" [class.d-none]="websiteName.valid || websiteName.untouched"> Website Name cannot be Blank</p>
+						</div>	
+				    </div> 
+					 <br>
+					 <div class="row" >
 							<div class="col-md-6 mt-2">
 									<label class ="heading">Email :</label>&nbsp;&nbsp;
-									<input type="email"  class="inputBox" name="email" #email="ngModel" [(ngModel)]="model.email" style="width: 459px;" required>
+									<input type="email"  class="inputBox" name="email" #email="ngModel" [(ngModel)]="model.email" style="width: 100%;" required>
 									<p class="invalid" [class.d-none]="email.valid || email.untouched"> Email cannot be Blank</p>
 							</div>	
 				 </div>  
@@ -23,7 +31,7 @@
 				 <div class="row" >
 						<div class="col-md-6 mt-2">
 								<label class ="heading">Password:</label>&nbsp;&nbsp;
-								<input type="password"  class="inputBox" name="password" #password="ngModel"  [(ngModel)]="model.password" style="width: 477px;" required>
+								<input type="password"  class="inputBox" name="password" #password="ngModel"  [(ngModel)]="model.password" style="width: 100%;" required>
 								<p class="invalid" [class.d-none]="password.valid || password.untouched"> Password cannot be Blank</p>
 						</div>	
 			 </div>  
@@ -31,20 +39,20 @@
 			 <div class="row" >
 				<div class="col-md-6 mt-2">
 						<label class ="heading">Facebook Url:</label>&nbsp;&nbsp;
-						<input type="text"  class="inputBox" name="fb"  [(ngModel)]="model.fb" style="width: 477px;" >
+						<input type="text"  class="inputBox" name="fb"  [(ngModel)]="model.fb" style="width: 100%;" >
 				</div>	
 			</div>  
 			<br>
 			<div class="row" >
 				<div class="col-md-6 mt-2">
 						<label class ="heading">Instagram Url:</label>&nbsp;&nbsp;
-						<input type="text"  class="inputBox" name="insta"  [(ngModel)]="model.insta" style="width: 457px;" >
+						<input type="text"  class="inputBox" name="insta"  [(ngModel)]="model.insta" style="width: 100%;" >
 				</div>	
 			</div>  
 			<br>
 						<br>
 						<div class="row" >
-								<button [disabled]="accRegForm.form.invalid" [ngClass]="accRegForm.form.invalid ?'diabled-class':'buttonbox'"  (click)="submit();" style="margin-top: 22px; margin-left: 550px;">Submit</button>
+								<button [disabled]="accRegForm.form.invalid" [ngClass]="accRegForm.form.invalid ?'diabled-class':'buttonbox'"  (click)="submit();" style="margin-top: 22px; margin-left: 46%;">Submit</button>
 								<br>
 								<!-- <div class="buttonbox pointer" (click)="submit()" style="margin-top: 22px; margin-left: 550px;">
 										Submit

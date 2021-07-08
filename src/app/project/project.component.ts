@@ -26,12 +26,10 @@ export class ProjectComponent implements OnInit {
   constructor(private _projService:ProjectService,private router: Router) { }
 
   ngOnInit() {
-    // this._projService.getEmployeeList()
-    //                .subscribe(data =>this.listdata   = data,
-    //                           error =>this.errorMsg  = error ); 
+    this._projService.getProjectList()
+                   .subscribe(data =>this.listdata   = data.msg,
+                              error =>this.errorMsg  = error ); 
 
-    // console.log("EMployee List>>>>>>>>>>>")
-    // console.log(this.listdata)
   }
   navigateToAddProject(){  	
       this.router.navigate(["/"+this.constants.ORG_USER+"/addProject"]);
@@ -53,6 +51,31 @@ export class ProjectComponent implements OnInit {
    
     this.order = value;
    
+  }
+
+  editStory(id){
+    this.router.navigate(["/"+this.constants.ORG_USER+"/editProject/"+id]);
+  }
+
+  deleteStory(id){
+
+    let requestJson = {};
+    requestJson['id'] =   id  
+
+    this._projService.removeProject(requestJson)
+                         .subscribe(data =>{
+                                       if(data.success){
+                                         alert("Story deleted successfully")
+                                        window.location.reload();
+                                       }
+
+                                  
+                                    },
+                                    error =>this.errorMsg  = error );
+  }
+
+  addPhoto(id) {
+    this.router.navigate(["/"+this.constants.ORG_USER+"/addPhoto/"+id]);
   }
 
 }

@@ -5,7 +5,7 @@
     </div>
   </div>
   <br>
-  <div class="row">
+  <div class="row" style="margin-left: 1%;">
     <div class="col-md-12">
         <table class="table table-hover border-0 font12">
             <thead>
@@ -53,7 +53,7 @@
             </tbody>
             <tbody *ngIf="listdata || listdata.length > 0 ">
               <tr *ngFor="let row of listdata| sort: order:orderType:reverseOrder | paginate: pagination;let i = index">
-                <td style="width:12%">{{row._id}}</td>
+                <td style="width:12%">{{i+1}}</td>
                 <td style="width:14%">{{row.cms_type}}</td>
                 <td style="width:12%" [innerHTML]="row.description"></td>
                 <td  style="width:12%"> 

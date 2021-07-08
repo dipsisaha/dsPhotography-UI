@@ -10,11 +10,10 @@
     font-size: 15px;
   }
   .formcontainer{
-    height: 80%;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    height: 100%;
+    
     background-color: white;
-    margin-right: 40px;
+     
   }
   .inputBox{
     border: 0;
@@ -43,7 +42,7 @@
     padding-left: 25px;
   }
   .subheading {
-    width: 98px;
+    width: 141px;
     margin-top: -13px;
     margin-left: 14px;
     background: white;
@@ -78,10 +77,9 @@
     margin              : 0;
     border-style	      : none;
   }
+
+.visibility{
+    padding-left: 93%;
+    margin-top: -11%;
+  }
   
-  :host ::ng-deep .ck-editor__editable {
-    min-height: 500px;
-}
-.btn-primary {
-  background-color: black !important;
-}
